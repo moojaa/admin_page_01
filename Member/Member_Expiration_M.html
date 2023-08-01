@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>매장관리프로그램</title>
+
+    <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="../index.html" class="site_title"><i class="bi bi-building-fill"></i> <span class="sidebar-brand-text mx-3">GTR매장관리<span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="../production/images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>어서오세요,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li><a href="../index.html"><i class="fa fa-home"></i> 관리자홈</a></li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3>MEMBER</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa bi-people-fill"></i> 회원매뉴 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../Member/Member_Info_M.html">회원정보관리</a></li>
+                      <li><a href="../Member/Member_Attendance_M.html">회원출석관리</a></li>
+                      <li><a href="../Member/Member_Expiration_M.html">만료된회원관리</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa bi-clipboard-data-fill"></i> 매장관리 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../Store_M/useing_time_m.html">사용시간관리</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa bi-pass-fill"></i> 통계 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="javascript:alert('서비스 준비중입니다.');">타석사용통계</a></li>
+                      <li><a href="../Statistics/Sales_M.html">매장매출관리</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa bi-archive-fill"></i> 기타메뉴 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="javascript:alert('서비스 준비중입니다.');">sns발송</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="javascript:alert('서비스 준비중입니다.');"><i class="fa bi-ui-checks-grid"></i> 사용자 입력화면</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="../production/login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <div class="nav toggle">
+                  <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <nav class="nav navbar-nav">
+                <ul class=" navbar-right">
+                  <li class="nav-item dropdown open" style="padding-left: 15px;">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                      <img src="../production/images/img.jpg" alt="">John Doe
+                    </a>
+                    <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item"  href="javascript:;"> 매장정보수정</a>
+                      <a class="dropdown-item"  href="../production/login.html"><i class="fa fa-sign-out pull-right"></i> 로그아웃</a>
+                    </div>
+                  </li>
+  
+                  <li role="presentation" class="nav-item dropdown open">
+                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-envelope-o"></i>
+                      <span class="badge bg-green">6</span>
+                    </a>
+                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <div class="text-center">
+                          <a class="dropdown-item">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>회원메뉴</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>만료된회원관리</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card-box table-responsive">
+                                            <table id="datatable" class="table table-striped table-bordered" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>아이디</th>
+                                                        <th>이름</th>
+                                                        <th>전화번호</th>
+                                                        <th>접속시간</th>
+                                                        <th>상세보기</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tiger Nixon</td>
+                                                        <td>System Architect</td>
+                                                        <td>Edinburgh</td>
+                                                        <td>61</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+                                                        <td>Tokyo</td>
+                                                        <td>63</td>
+                                                        <td><button type="button" class="btn-sm bg-green  regMemberInfo"data-toggle="modal" data-target="#new_m">상세</button></td>
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 신규등록 Modal-->
+        <div class="modal fade" id="new_m" tabindex="-1" role="dialog" aria-labelledby="regMemberInfo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="regMemberInfo">회원정보수정</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form name="memberFrm" method="post" action="member_regOk.php">
+                        <div class="modal-body">
+                            <input type="hidden" name="delFG" value="N">
+                            <input type="hidden" name="smIdx" value="">
+                            <!-- Horizontal Form -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">아이디</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smID" placeholder="아이디" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">패스워드</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smPW" placeholder="패스워드" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">이름</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smName" placeholder="이름" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">전화번호</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smTel" placeholder="전화번호" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">기본시간</label>
+                                        <div class="col-sm-9">
+                                            <select name="smTime" class="form-control">
+                                                <option value="10">10분</option>
+                                                <option value="20">20분</option>
+                                                <option value="30">30분</option>
+                                                <option value="40">40분</option>
+                                                <option value="50">50분</option>
+                                                <option value="60">60분</option>
+                                                <option value="70">70분</option>
+                                                <option value="80">80분</option>
+                                                <option value="90">90분</option>
+                                                <option value="100">100분</option>
+                                                <option value="110">110분</option>
+                                                <option value="120">120분</option>
+                                                <option value="130">130분</option>
+                                                <option value="140">140분</option>
+                                                <option value="150">150분</option>
+                                                <option value="160">160분</option>
+                                                <option value="170">170분</option>
+                                                <option value="180">180분</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">회원시작</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smSDate" id="smSDate" placeholder="회원기간" readonly="" value="2023-07-17">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">회원종료</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smMDate" id="smMDate" placeholder="회원기간" readonly="" value="2023-07-17">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="smEtcVarchar1" class="col-sm-3 col-form-label">락카번호</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smEtcVarchar1" placeholder="락카번호" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="smEtcVarchar2" class="col-sm-3 col-form-label">등록종류</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smEtcVarchar2" placeholder="등록종류" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="smEtcVarchar3" class="col-sm-3 col-form-label">담당프로</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="smEtcVarchar3" placeholder="담당프로" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="smText" class="col-sm-3 col-form-label">비 고</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" style="width:100%;height:100px" name="smText"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning btn-delete" style="position: absolute;left: 20px;">삭제</button>
+                            <button type="button" class="btn btn-outline-primary float-right" data-dismiss="modal">닫기</button>
+                            <button type="submit" class="btn btn-primary float-right">저장</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- 신규등록 Modal-->
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Copyright © Developed by GTR Golf
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+   <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+  </body>
+</html>
