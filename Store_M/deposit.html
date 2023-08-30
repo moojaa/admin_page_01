@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>매장관리프로그램</title>
+
+    <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md" style="font-family: Noto Sans KR;">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="../index.html" class="site_title"><i class="bi bi-building-fill"></i> <span class="sidebar-brand-text mx-3">GTR매장관리<span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="../production/images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>어서오세요,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li><a href="../index.html"><i class="fa fa-home"></i> 관리자홈</a></li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3>MEMBER</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa bi-people-fill"></i> 회원매뉴 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../Member/Member_Info_M.html">회원정보관리</a></li>
+                      <li><a href="../Member/Member_Attendance_M.html">회원출석관리</a></li>
+                      <li><a href="../Member/Member_Expiration_M.html">만료된회원관리</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa bi-clipboard-data-fill"></i> 매장관리 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../Store_M/deposit.html">입출금관리</a></li>
+                      <li><a href="../Store_M/useing_time_m.html">사용시간관리</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa bi-pass-fill"></i> 통계 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="javascript:alert('서비스 준비중입니다.');">타석사용통계</a></li>
+                      <li><a href="../Statistics/Sales_M.html">매장매출관리</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa bi-archive-fill"></i> 기타메뉴 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="javascript:alert('서비스 준비중입니다.');">sns발송</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="javascript:alert('서비스 준비중입니다.');"><i class="fa bi-ui-checks-grid"></i> 사용자 입력화면</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="../production/login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <img src="../production/images/user.png" alt="">John Doe
+                  </a>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="javascript:;"> 매장정보수정</a>
+                    <a class="dropdown-item"  href="../production/login.html"><i class="fa fa-sign-out pull-right"></i> 로그아웃</a>
+                  </div>
+                </li>
+
+                <li role="presentation" class="nav-item dropdown open mx-2 my-2">
+                  <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John S11mith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <div class="text-center">
+                        <a class="dropdown-item">
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                  <li role="presentation" class="nav-item dropdown open mx-2 my-2">
+                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-envelope-o"></i>
+                      <span class="badge bg-green">6</span>
+                    </a>
+                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smi22th</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item">
+                          <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                          <span>
+                            <span>John Smith</span>
+                            <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <div class="text-center">
+                          <a class="dropdown-item">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                    <li role="presentation" class="nav-item dropdown open mx-2 my-2">
+                      <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-bullhorn"></i>
+                        <span class="badge bg-green">6</span>
+                      </a>
+                      <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                        <li class="nav-item">
+                          <a class="dropdown-item">
+                            <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                            <span>
+                              <span>John Smi44th</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="dropdown-item">
+                            <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="dropdown-item">
+                            <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="dropdown-item">
+                            <span class="image"><img src="../production/images/img.jpg" alt="Profile Image" /></span>
+                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <div class="text-center">
+                            <a class="dropdown-item">
+                              <strong>See All Alerts</strong>
+                              <i class="fa fa-angle-right"></i>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>매장관리</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>입출금관리</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card-box table-responsive">
+                                            <table id="datatable" class="table table-striped jambo_table bulk_action ">
+                                                <thead>
+                                                    <tr class="headings" style="font-size: 16px;">
+                                                      <th class="column-title">날짜</th>
+                                                      <th class="column-title">구분</th>
+                                                      <th class="column-title">입금</th>
+                                                      <th class="column-title">출금</th>
+                                                      <th class="column-title">잔액</th>
+                                                      <th class="column-title">상태</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="font-size: 14px; font-weight: 500;">
+                                                  <tr class="even pointer">
+                                                    <td>2023-07-17</td>
+                                                    <td>-</td>
+                                                    <td>100,000₩</td>
+                                                    <td>-</td>
+                                                    <td>1,000,000₩</td>
+                                                    <td>
+                                                      <div class="btn-group">
+                                                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                                                          aria-haspopup="true" aria-expanded="false" style="margin: 0px 0px 0px 0px; padding: 0 10px 0 10px;">
+                                                          옵션
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                          <a class="dropdown-item" href="#">1번</a>
+                                                          <a class="dropdown-item" href="#">2번</a>
+                                                          <a class="dropdown-item" href="#">3번</a>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr class="odd pointer">
+                                                    <td>2023-07-17</td>
+                                                    <td>-</td>
+                                                    <td>100,000₩</td>
+                                                    <td>-</td>
+                                                    <td>1,000,000₩</td>
+                                                    <td>
+                                                      <div class="btn-group">
+                                                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                                                          aria-haspopup="true" aria-expanded="false" style="margin: 0px 0px 0px 0px; padding: 0 10px 0 10px;">
+                                                          옵션
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                          <a class="dropdown-item" href="#">1번</a>
+                                                          <a class="dropdown-item" href="#">2번</a>
+                                                          <a class="dropdown-item" href="#">3번</a>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr class="even pointer">
+                                                    <td>2023-07-17</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>100,000₩</td>
+                                                    <td>1,000,000₩</td>
+                                                    <td>
+                                                      <div class="btn-group">
+                                                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                                                          aria-haspopup="true" aria-expanded="false" style="margin: 0px 0px 0px 0px; padding: 0 10px 0 10px;">
+                                                          옵션
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                          <a class="dropdown-item" href="#">1번</a>
+                                                          <a class="dropdown-item" href="#">2번</a>
+                                                          <a class="dropdown-item" href="#">3번</a>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr class="odd pointer">
+                                                    <td>2023-07-17</td>
+                                                    <td>-</td>
+                                                    <td>100,000₩</td>
+                                                    <td>-</td>
+                                                    <td>1,000,000₩</td>
+                                                    <td>
+                                                      <div class="btn-group">
+                                                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                                                          aria-haspopup="true" aria-expanded="false" style="margin: 0px 0px 0px 0px; padding: 0 10px 0 10px;">
+                                                          옵션
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                          <a class="dropdown-item" href="#">1번</a>
+                                                          <a class="dropdown-item" href="#">2번</a>
+                                                          <a class="dropdown-item" href="#">3번</a>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Copyright © Developed by GTR Golf
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+   <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+  </body>
+</html>
